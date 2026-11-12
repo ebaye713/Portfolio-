@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, Cpu, Target, Award, CheckCircle2 } from 'lucide-react';
+import soloOutdoorImg from '../assets/images/ebaye_solo_outdoor_1794352126353.jpg';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -28,7 +29,7 @@ export const AboutSection: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl">
                 <div className="aspect-[3/4] w-full overflow-hidden">
                   <img
-                    src="/src/assets/images/ebaye_solo_outdoor_1794352126353.jpg"
+                    src={soloOutdoorImg}
                     alt="Ebaye PraiseGod Ese - Developer, Innovator and Robotics Competitor"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { galleryPhotos } from '../data/gallery';
 import { LightboxModal } from './LightboxModal';
-import { Maximize2, Camera, Calendar, Award } from 'lucide-react';
+import { Maximize2 } from 'lucide-react';
 
 export const GallerySection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -35,7 +35,7 @@ export const GallerySection: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 ${
+                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-amber-400 text-slate-950 font-semibold shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -47,125 +47,63 @@ export const GallerySection: React.FC = () => {
           </div>
         </div>
 
-        {/* Dynamic Bento Gallery Grid (§2.A) */}
+        {/* Dynamic Bento Gallery Grid driven by filteredPhotos */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-          
-          {/* Card 1: Wide Showcase (Team Galaxy International Robotics Arena) */}
-          <div
-            onClick={() => setActiveLightboxIndex(0)}
-            className="md:col-span-8 group cursor-pointer relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl hover:border-amber-400/50 transition-all duration-300 min-h-[360px] md:min-h-[460px] flex flex-col justify-end"
-          >
-            <img
-              src="/assets/aistudio/IMG-20261011-WA0009_e6ee9516.jpg"
-              alt="Team Galaxy in the international robotics tournament arena"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              referrerPolicy="no-referrer"
-            />
-            {/* Measured Gradient Scrim (§1.F) */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+          {filteredPhotos.map((photo, index) => {
+            // Preserve the wide bento rhythm when viewing All photos
+            const colSpanClass =
+              selectedCategory !== 'All'
+                ? 'md:col-span-12 min-h-[380px] md:min-h-[480px]'
+                : index === 0
+                  ? 'md:col-span-8 min-h-[360px] md:min-h-[460px]'
+                  : index === 1
+                    ? 'md:col-span-4 min-h-[360px] md:min-h-[460px]'
+                    : 'md:col-span-12 min-h-[280px] sm:min-h-[340px]';
 
-            <div className="relative p-6 sm:p-8 space-y-2 z-10">
-              <div className="flex items-center gap-2 text-xs text-amber-400 font-medium">
-                <span>Robotics & Engineering</span>
-                <span aria-hidden="true" className="text-slate-400">·</span>
-                <span>Competition Season 2026</span>
-                <span aria-hidden="true" className="text-slate-400">·</span>
-                <span className="font-mono text-slate-300">FIRST / Coding Age Circuit</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                Team Galaxy in the International Arena
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 max-w-2xl leading-relaxed">
-                Ebaye PraiseGod Ese and teammates making precision mechanical adjustments to their competition robot in the arena pits during the high-stakes youth robotics championship.
-              </p>
-              
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80">
-                <span className="font-mono text-[11px] text-slate-300">F.G.C. Ikom · Team Galaxy</span>
-                <span className="inline-flex items-center gap-1 text-amber-400 font-semibold">
-                  <Maximize2 size={13} />
-                  <span>Expand Photo</span>
-                </span>
-              </div>
-            </div>
-          </div>
+            return (
+              <div
+                key={photo.id}
+                onClick={() => setActiveLightboxIndex(index)}
+                className={`${colSpanClass} group cursor-pointer relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-end`}
+              >
+                <img
+                  src={photo.image}
+                  alt={photo.title}
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Measured Gradient Scrim */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent" />
 
-          {/* Card 2: Executive Portrait (Face Portrait - Ceiling Removed) */}
-          <div
-            onClick={() => setActiveLightboxIndex(1)}
-            className="md:col-span-4 group cursor-pointer relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl hover:border-amber-400/50 transition-all duration-300 min-h-[360px] md:min-h-[460px] flex flex-col justify-end"
-          >
-            <img
-              src="/src/assets/images/ebaye_face_portrait_1794352146331.jpg"
-              alt="Ebaye PraiseGod Ese face portrait"
-              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              referrerPolicy="no-referrer"
-            />
-            {/* Measured Gradient Scrim */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-
-            <div className="relative p-6 space-y-2 z-10">
-              <div className="flex items-center gap-2 text-xs text-amber-400 font-medium">
-                <span>Portraits</span>
-                <span aria-hidden="true" className="text-slate-400">·</span>
-                <span>2026</span>
+                <div className="relative p-6 sm:p-8 space-y-2 z-10">
+                  <div className="flex items-center gap-2 text-xs text-amber-400 font-medium">
+                    <span>{photo.category}</span>
+                    <span aria-hidden="true" className="text-slate-400">·</span>
+                    <span>{photo.date}</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    {photo.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 max-w-2xl leading-relaxed">
+                    {photo.caption}
+                  </p>
+                  <div className="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80">
+                    <span className="font-mono text-[11px] text-slate-300 truncate pr-3">{photo.context}</span>
+                    <span className="inline-flex items-center gap-1 text-amber-400 font-semibold whitespace-nowrap shrink-0">
+                      <Maximize2 size={13} />
+                      <span>Expand Photo</span>
+                    </span>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                Ebaye PraiseGod Ese
-              </h3>
-              <p className="text-xs text-slate-200 line-clamp-2 leading-relaxed">
-                Developer, Innovator, Creative Thinker, and Entrepreneur driven by curiosity and discipline.
-              </p>
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80">
-                <span className="text-[11px] text-slate-300">Studio Portrait</span>
-                <span className="inline-flex items-center gap-1 text-amber-400 font-semibold">
-                  <Maximize2 size={13} />
-                  <span>View</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3: Campus & Tech Fellowship (Solo Outdoor Photo) */}
-          <div
-            onClick={() => setActiveLightboxIndex(2)}
-            className="md:col-span-12 group cursor-pointer relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl hover:border-amber-400/50 transition-all duration-300 min-h-[280px] sm:min-h-[340px] flex flex-col justify-end"
-          >
-            <img
-              src="/src/assets/images/ebaye_solo_outdoor_1794352126353.jpg"
-              alt="Ebaye PraiseGod Ese - Campus and tech innovation"
-              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-
-            <div className="relative p-6 sm:p-8 space-y-2 z-10">
-              <div className="flex items-center gap-2 text-xs text-amber-400 font-medium">
-                <span>Campus & Innovation</span>
-                <span aria-hidden="true" className="text-slate-400">·</span>
-                <span>Collaboration</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                Collaborative Discussions & Campus Engineering
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed">
-                Interacting with classmates and engineering partners, exchanging ideas on emerging software stacks, business opportunities, and community impact.
-              </p>
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80">
-                <span className="text-[11px] text-slate-300">Cross-Disciplinary Fellowship</span>
-                <span className="inline-flex items-center gap-1 text-amber-400 font-semibold">
-                  <Maximize2 size={13} />
-                  <span>Expand Full View</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
+            );
+          })}
         </div>
 
         {/* Lightbox Modal */}
         {activeLightboxIndex !== null && (
           <LightboxModal
-            photos={galleryPhotos}
+            photos={filteredPhotos}
             initialIndex={activeLightboxIndex}
             isOpen={activeLightboxIndex !== null}
             onClose={() => setActiveLightboxIndex(null)}

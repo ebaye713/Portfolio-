@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Code2, Bot, Lightbulb, ExternalLink } from 'lucide-react';
+import facePortraitImg from '../assets/images/ebaye_face_portrait_1794352146331.jpg';
 
 export const Hero: React.FC = () => {
   // Dynamic typing & wiping animation
@@ -151,7 +152,7 @@ export const Hero: React.FC = () => {
                 {/* User Authentic Face Portrait */}
                 <div className="aspect-[4/5] w-full overflow-hidden relative group">
                   <img
-                    src="/src/assets/images/ebaye_face_portrait_1794352146331.jpg"
+                    src={facePortraitImg}
                     alt="Ebaye PraiseGod Ese face portrait"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"

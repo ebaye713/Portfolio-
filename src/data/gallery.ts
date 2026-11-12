@@ -1,4 +1,6 @@
 import { GalleryPhoto } from '../types';
+import facePortraitImg from '../assets/images/ebaye_face_portrait_1794352146331.jpg';
+import soloOutdoorImg from '../assets/images/ebaye_solo_outdoor_1794352126353.jpg';
 
 /**
  * ============================================================================
@@ -33,7 +35,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     id: "ebaye-portrait-executive",
     title: "Ebaye PraiseGod Ese",
     category: "Portraits",
-    image: "/src/assets/images/ebaye_face_portrait_1794352146331.jpg",
+    image: facePortraitImg,
     date: "2026",
     caption: "Portrait of Ebaye PraiseGod Ese — Developer, Innovator, Creative Thinker, and Digital Entrepreneur.",
     context: "Official Studio Portrait",
@@ -43,7 +45,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     id: "campus-innovation-walk",
     title: "Campus & Tech Collaborations",
     category: "Campus & Innovation",
-    image: "/src/assets/images/ebaye_solo_outdoor_1794352126353.jpg",
+    image: soloOutdoorImg,
     date: "2026",
     caption: "Ebaye PraiseGod Ese on campus exploring tech opportunities, software development, and engineering initiatives.",
     context: "Innovation & Fellowship Gathering",

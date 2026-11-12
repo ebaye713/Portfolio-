@@ -1,4 +1,6 @@
 import { Project } from '../types';
+import solarVoltImg from '../assets/images/project_solarvolt_secure_1794351044381.jpg';
+import kenuchSolarImg from '../assets/images/project_kenuch_solar_1794351045327.jpg';
 
 /**
  * ============================================================================
@@ -14,7 +16,7 @@ import { Project } from '../types';
  *    - `category`: 'Web Development' | 'Robotics & Hardware' | 'Digital Branding'
  *    - `description`: 2-3 sentence overview of what was built and why
  *    - `longDescription`: Detailed technical breakdown shown inside the details modal
- *    - `image`: URL or local asset path (e.g., "/src/assets/images/...jpg" or "/assets/...")
+ *    - `image`: URL, imported image variable, or path in `public/assets/...` (e.g., "/assets/your-image.jpg")
  *    - `tags`: Key technologies or tools used (e.g., ["React", "Python", "Sensors"])
  *    - `features`: Bullet points highlighting what the project does
  *    - `link`: Optional live preview URL (set to '#' or your domain if live)
@@ -29,7 +31,7 @@ import { Project } from '../types';
  *   category: "Web Development", // or 'Robotics & Hardware' | 'Digital Branding'
  *   description: "Overview of what you accomplished in this project.",
  *   longDescription: "Deep dive into problem solved, architecture, and results.",
- *   image: "/src/assets/images/your-image.jpg",
+ *   image: "/assets/your-image.jpg",
  *   tags: ["React", "Tailwind CSS", "TypeScript"],
  *   features: ["Feature 1", "Feature 2", "Feature 3"],
  *   link: "https://your-live-link.com",
@@ -48,7 +50,7 @@ export const projectsData: Project[] = [
     category: "Web Development",
     description: "A professional web application for a premier solar installation and CCTV security firm. Designed with high-converting landing architecture, interactive service galleries, customer testimonials, and an instant consultation booking engine.",
     longDescription: "SolarVolt & Secure required a robust, modern digital identity to compete in the fast-growing clean energy and commercial security sectors. The platform highlights dual service capabilities (renewable solar arrays and 24/7 CCTV smart monitoring), responsive multi-device layouts, animated service showcases, real customer case studies, and an automated inquiry contact workflow.",
-    image: "/src/assets/images/project_solarvolt_secure_1794351044381.jpg",
+    image: solarVoltImg,
     tags: ["Web Design", "Responsive UI", "CSS Animations", "Lead Generation", "Commercial Web"],
     features: [
       "Dynamic service portfolio showing solar setups and CCTV installations",
@@ -70,7 +72,7 @@ export const projectsData: Project[] = [
     category: "Digital Branding",
     description: "A comprehensive digital branding and responsive website project engineered for Kenuch Solar installation business, focused on establishing digital market presence and driving residential and commercial conversions.",
     longDescription: "Kenuch Solar needed to build trust with homeowners and commercial property managers looking to transition to green energy. Ebaye led the digital branding, typography hierarchy, visual assets, and website engineering. The interface features clear cost-saving calculators, panel efficiency comparisons, customer reviews, and clear calls-to-action.",
-    image: "/src/assets/images/project_kenuch_solar_1794351045327.jpg",
+    image: kenuchSolarImg,
     tags: ["Digital Branding", "Web Development", "UI/UX Architecture", "SEO Strategy", "Clean Energy"],
     features: [
       "Custom brand identity design tailored to renewable energy and trust",

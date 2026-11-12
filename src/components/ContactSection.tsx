@@ -8,6 +8,7 @@ export const ContactSection: React.FC = () => {
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -72,10 +73,11 @@ export const ContactSection: React.FC = () => {
   const handleFinalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
-      // Direct POST to user's personal email via FormSubmit AJAX service
-      await fetch(`https://formsubmit.co/ajax/${email}`, {
+      // Direct AJAX submission straight to ebayepatience@gmail.com (no page redirect)
+      const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -83,6 +85,8 @@ export const ContactSection: React.FC = () => {
         },
         body: JSON.stringify({
           _subject: `New Portfolio Message from ${formData.name} (${formData.projectType})`,
+          _template: 'table',
+          _captcha: 'false',
           name: formData.name,
           email: formData.email,
           projectType: formData.projectType,
@@ -90,23 +94,25 @@ export const ContactSection: React.FC = () => {
           _replyto: formData.email,
         }),
       });
+
+      if (!response.ok) {
+        throw new Error('Unable to send message right now.');
+      }
+
+      setFormSubmitted(true);
     } catch (err) {
-      console.warn('Direct mail dispatch fallback:', err);
+      console.error('Direct mail dispatch failed:', err);
+      setSubmitError(
+        `Could not deliver automatically right now. Please try again or email ${email} directly.`
+      );
     } finally {
       setIsSubmitting(false);
-      setFormSubmitted(true);
-
-      // Also trigger mailto so user's client is always dispatched
-      const subject = encodeURIComponent(`Portfolio Inquiry: ${formData.projectType} from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Hi Ebaye,\n\nName: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}\n\nSent to: ${email}`
-      );
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     }
   };
 
   const resetForm = () => {
     setFormSubmitted(false);
+    setSubmitError(null);
     setCurrentStep(1);
     setFormData({ name: '', email: '', projectType: 'Web Development', message: '' });
   };
@@ -203,9 +209,9 @@ export const ContactSection: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
                     <Check size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Message Dispatched!</h3>
+                  <h3 className="text-2xl font-bold text-white">Message Sent Directly!</h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-white">{formData.name}</strong>. Your inquiry has been compiled and your email client is ready. Ebaye will review your note and respond promptly.
+                    Thank you, <strong className="text-white">{formData.name}</strong>. Your message has been sent straight to <span className="font-mono text-amber-400">{email}</span> without leaving this page. Ebaye will respond to you shortly.
                   </p>
                   <button
                     onClick={resetForm}
@@ -395,6 +401,11 @@ export const ContactSection: React.FC = () => {
                           </p>
                         </div>
                       </div>
+                      {submitError && (
+                        <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300">
+                          {submitError}
+                        </div>
+                      )}
                     </div>
                   )}
 

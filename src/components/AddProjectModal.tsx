@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Project } from '../types';
 import { X, Copy, Check, Plus, Code, Eye, Sparkles } from 'lucide-react';
+import solarVoltImg from '../assets/images/project_solarvolt_secure_1794351044381.jpg';
 
 interface AddProjectModalProps {
   isOpen: boolean;
@@ -16,7 +17,7 @@ export const AddProjectModal: React.FC<AddProjectModalProps> = ({ isOpen, onClos
     category: 'Web Development' as Project['category'],
     description: '',
     longDescription: '',
-    image: '/src/assets/images/project_solarvolt_secure_1794351044381.jpg',
+    image: solarVoltImg,
     tags: 'React, TypeScript, Tailwind CSS',
     features: 'Responsive interface, High performance, User-friendly navigation',
     client: '',
