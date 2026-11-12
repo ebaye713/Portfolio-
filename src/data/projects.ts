@@ -1,6 +1,6 @@
 import { Project } from '../types';
-import solarVoltImg from '../assets/images/project_solarvolt_secure_1794351044381.jpg';
 import kenuchSolarImg from '../assets/images/project_kenuch_solar_1794351045327.jpg';
+import awaDecorationImg from '../assets/images/project_awa_decoration_1794519609460.jpg';
 
 /**
  * ============================================================================
@@ -11,7 +11,7 @@ import kenuchSolarImg from '../assets/images/project_kenuch_solar_1794351045327.
  * 1. Duplicate one of the project objects below inside the `projectsData` array.
  * 2. Fill in your project details:
  *    - `id`: Unique lowercase slug (e.g. "my-new-app")
- *    - `title`: Project Name (e.g. "SolarVolt & Secure")
+ *    - `title`: Project Name (e.g. "Kenuch Solar")
  *    - `subtitle`: Short 1-sentence descriptor
  *    - `category`: 'Web Development' | 'Robotics & Hardware' | 'Digital Branding'
  *    - `description`: 2-3 sentence overview of what was built and why
@@ -19,7 +19,7 @@ import kenuchSolarImg from '../assets/images/project_kenuch_solar_1794351045327.
  *    - `image`: URL, imported image variable, or path in `public/assets/...` (e.g., "/assets/your-image.jpg")
  *    - `tags`: Key technologies or tools used (e.g., ["React", "Python", "Sensors"])
  *    - `features`: Bullet points highlighting what the project does
- *    - `link`: Optional live preview URL (set to '#' or your domain if live)
+ *    - `link`: Optional live preview URL (clicking opens client's live website)
  *    - `year`: Year completed (e.g., "2026")
  *    - `featured`: Set to `true` to highlight prominently
  * 
@@ -44,34 +44,12 @@ import kenuchSolarImg from '../assets/images/project_kenuch_solar_1794351045327.
 
 export const projectsData: Project[] = [
   {
-    id: "solarvolt-secure",
-    title: "SolarVolt & Secure",
-    subtitle: "Enterprise Solar Energy & CCTV Smart Surveillance Web Platform",
-    category: "Web Development",
-    description: "A professional web application for a premier solar installation and CCTV security firm. Designed with high-converting landing architecture, interactive service galleries, customer testimonials, and an instant consultation booking engine.",
-    longDescription: "SolarVolt & Secure required a robust, modern digital identity to compete in the fast-growing clean energy and commercial security sectors. The platform highlights dual service capabilities (renewable solar arrays and 24/7 CCTV smart monitoring), responsive multi-device layouts, animated service showcases, real customer case studies, and an automated inquiry contact workflow.",
-    image: solarVoltImg,
-    tags: ["Web Design", "Responsive UI", "CSS Animations", "Lead Generation", "Commercial Web"],
-    features: [
-      "Dynamic service portfolio showing solar setups and CCTV installations",
-      "Interactive quotation request and customer consultation forms",
-      "Customer testimonials, trust metrics, and security guarantees",
-      "Performance-optimized load times and seamless mobile responsiveness",
-      "Branded color scheme reflecting green power and digital security"
-    ],
-    link: "https://solarvoltsecure.com",
-    client: "SolarVolt & Secure Technologies",
-    year: "2026",
-    featured: true,
-    highlights: "Increased qualified business consultation leads by over 140% post-launch."
-  },
-  {
     id: "kenuch-solar",
     title: "Kenuch Solar",
     subtitle: "Digital Branding & Sustainable Energy Web Architecture",
     category: "Digital Branding",
     description: "A comprehensive digital branding and responsive website project engineered for Kenuch Solar installation business, focused on establishing digital market presence and driving residential and commercial conversions.",
-    longDescription: "Kenuch Solar needed to build trust with homeowners and commercial property managers looking to transition to green energy. Ebaye led the digital branding, typography hierarchy, visual assets, and website engineering. The interface features clear cost-saving calculators, panel efficiency comparisons, customer reviews, and clear calls-to-action.",
+    longDescription: "Kenuch Solar needed to build trust with homeowners and commercial property managers looking to transition to green energy. Ebaye led the digital branding, typography hierarchy, visual assets, and website engineering. The interface features clear cost-saving guides, panel efficiency comparisons, customer reviews, and direct calls-to-action.",
     image: kenuchSolarImg,
     tags: ["Digital Branding", "Web Development", "UI/UX Architecture", "SEO Strategy", "Clean Energy"],
     features: [
@@ -81,11 +59,32 @@ export const projectsData: Project[] = [
       "Cross-browser tested with zero latency and smooth micro-interactions",
       "Interactive installation project gallery with high-resolution imagery"
     ],
-    link: "https://kenuchsolar.com",
+    link: "https://kenuchenergy.vercel.app",
     client: "Kenuch Solar Systems Ltd.",
     year: "2026",
     featured: true,
-    highlights: "Established the company's first digital customer acquisition funnel."
+    highlights: "Established the company's live digital customer acquisition platform."
+  },
+  {
+    id: "awa-decoration",
+    title: "Awa Decoration",
+    subtitle: "First Commercial Web Project — Upgraded Event & Interior Styling Platform",
+    category: "Web Development",
+    description: "My very first commercial web development project, built for an event styling and interior decoration brand—later upgraded with cleaner visual architecture, responsive layouts, and streamlined client booking flows.",
+    longDescription: "Awa Decoration marks an important milestone as my first real-world website build. Starting from initial HTML/CSS fundamentals, I later revisited and upgraded the experience to improve visual elegance, mobile responsiveness, service clarity, and direct client inquiries—demonstrating continuous improvement and iteration in practice.",
+    image: awaDecorationImg,
+    tags: ["HTML & CSS", "JavaScript", "Web Upgrade", "Responsive Design", "UI Polish"],
+    features: [
+      "First production website deployed live, later upgraded for modern responsiveness",
+      "Showcases event styling, floral decor, and bespoke interior setups",
+      "Clean service navigation and mobile-friendly layout across screen sizes",
+      "Refined typography and visual hierarchy during the site upgrade"
+    ],
+    link: "https://awadecoration.vercel.app",
+    client: "Awa Decoration",
+    year: "2025 – 2026",
+    featured: true,
+    highlights: "First live website build, later upgraded with improved UI and responsive polish."
   },
   {
     id: "gidel-robotics",
@@ -143,6 +142,7 @@ export const projectsData: Project[] = [
    *   image: "/assets/...",
    *   tags: ["React", "TypeScript", "Tailwind"],
    *   features: ["Key feature 1", "Key feature 2"],
+   *   link: "https://...",
    *   year: "2026",
    *   featured: true
    * }

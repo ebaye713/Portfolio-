@@ -90,9 +90,9 @@ export const experienceAchievements = [
   {
     year: "2025 – 2026",
     title: "Lead Web Developer & Digital Brand Consultant",
-    organization: "SolarVolt & Secure & Kenuch Solar",
-    description: "Engineered responsive commercial websites for solar installation and CCTV surveillance enterprises, boosting customer consultation inquiries by over 140%.",
-    metric: "140%+ Lead Increase"
+    organization: "Kenuch Solar & Awa Decoration",
+    description: "Engineered and upgraded responsive commercial websites for renewable energy and event decoration brands, strengthening online visibility and customer inquiries.",
+    metric: "Live Client Deployments"
   },
   {
     year: "2024 – 2026",

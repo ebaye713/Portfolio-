@@ -18,12 +18,12 @@ import { Testimonial } from '../types';
 
 export const testimonialsData: Testimonial[] = [
   {
-    id: "testimonial-solarvolt",
-    quote: "Ebaye transformed how customers perceive SolarVolt & Secure online. He didn't just write clean code; he understood our business model, incorporated intuitive service breakdowns, and built an inquiry flow that doubled our incoming calls within weeks of launching.",
-    author: "Engr. Emmanuel Kalu",
-    role: "Managing Director",
-    company: "SolarVolt & Secure Technologies",
-    projectRelation: "SolarVolt & Secure Web Platform"
+    id: "testimonial-awa-decoration",
+    quote: "Ebaye built our very first website for Awa Decoration and later upgraded it with an even sharper, mobile-ready look. His dedication to improving his craft and making sure our event styling work looks elegant online really sets him apart.",
+    author: "Awa Decoration Management",
+    role: "Creative Director",
+    company: "Awa Decoration",
+    projectRelation: "Awa Decoration Web Platform"
   },
   {
     id: "testimonial-kenuch",

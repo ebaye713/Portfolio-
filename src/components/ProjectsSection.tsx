@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Project } from '../types';
 import { projectsData } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
   const [projects] = useState<Project[]>(projectsData);
@@ -27,7 +27,7 @@ export const ProjectsSection: React.FC = () => {
               Featured Engineering & Digital Works
             </h2>
             <p className="text-slate-400 max-w-xl text-base">
-              A curated selection of commercial web applications, digital branding platforms, and competitive robotics systems.
+              A curated selection of live commercial client websites, digital branding platforms, and competitive robotics systems.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export const ProjectsSection: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 ${
+                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-amber-400 text-slate-950 font-semibold shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -51,7 +51,9 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Bento Grid Showcase (§2.A) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, idx) => {
+          {filteredProjects.map((project) => {
+            const hasLiveUrl = Boolean(project.link && project.link !== '#');
+
             return (
               <div
                 key={project.id}
@@ -69,10 +71,25 @@ export const ProjectsSection: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                     
-                    {/* Floating Action Button */}
-                    <div className="absolute top-4 right-4 p-2 rounded-xl bg-slate-950/70 backdrop-blur-md text-white border border-slate-700/60 group-hover:bg-amber-400 group-hover:text-slate-950 group-hover:border-amber-400 transition-colors">
-                      <ArrowUpRight size={16} />
-                    </div>
+                    {/* Floating Action Button: opens live client site directly if available */}
+                    {hasLiveUrl ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`Visit ${project.title} live website`}
+                        title={`Visit ${project.title} live site`}
+                        className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold shadow-lg transition-transform hover:scale-105"
+                      >
+                        <span>Visit Live Site</span>
+                        <ExternalLink size={14} />
+                      </a>
+                    ) : (
+                      <div className="absolute top-4 right-4 p-2 rounded-xl bg-slate-950/70 backdrop-blur-md text-white border border-slate-700/60 group-hover:bg-amber-400 group-hover:text-slate-950 group-hover:border-amber-400 transition-colors">
+                        <ArrowUpRight size={16} />
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Body */}
@@ -85,7 +102,7 @@ export const ProjectsSection: React.FC = () => {
                       {project.client && (
                         <>
                           <span aria-hidden="true">·</span>
-                          <span className="truncate max-w-[140px]">{project.client}</span>
+                          <span className="truncate max-w-[160px]">{project.client}</span>
                         </>
                       )}
                     </div>
@@ -109,8 +126,8 @@ export const ProjectsSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Card Footer: Tags & Read more */}
-                <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                {/* Card Footer: Direct Live Link + Details */}
+                <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-slate-800/80 flex items-center justify-between gap-3 text-xs text-slate-400">
                   <div className="flex flex-wrap gap-x-2 gap-y-1">
                     {project.tags.slice(0, 3).map((tag, tIndex) => (
                       <span key={tag} className="font-mono text-[11px] text-slate-400">
@@ -119,9 +136,23 @@ export const ProjectsSection: React.FC = () => {
                     ))}
                   </div>
 
-                  <span className="text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform whitespace-nowrap">
-                    View Details →
-                  </span>
+                  <div className="flex items-center gap-4 shrink-0">
+                    {hasLiveUrl && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-white hover:text-amber-400 transition-colors whitespace-nowrap"
+                      >
+                        <span>Open Site</span>
+                        <ExternalLink size={12} />
+                      </a>
+                    )}
+                    <span className="text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform whitespace-nowrap">
+                      View Details →
+                    </span>
+                  </div>
                 </div>
               </div>
             );
