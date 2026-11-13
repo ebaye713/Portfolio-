@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, CheckCircle2, ArrowRight, ArrowLeft, Sparkles, User, AtSign, Briefcase, MessageSquare } from 'lucide-react';
+import { Mail, Copy, Check, Send, CheckCircle2, ArrowRight, ArrowLeft, Sparkles, User, AtSign, Briefcase, MessageSquare, Facebook, Linkedin, Twitter } from 'lucide-react';
+import { socialLinks } from '../data/socials';
 
 export const ContactSection: React.FC = () => {
   const email = "ebayepatience@gmail.com";
@@ -172,6 +173,27 @@ export const ContactSection: React.FC = () => {
                   <span>Open Mail App</span>
                   <ArrowRight size={14} />
                 </a>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800/80 space-y-2.5">
+                <p className="text-xs uppercase font-mono tracking-wider text-slate-400">Social Profiles</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.id}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 hover:text-slate-950 bg-slate-950 hover:bg-amber-400 rounded-xl border border-slate-800 hover:border-amber-400 transition-colors"
+                    >
+                      {social.id === 'facebook' && <Facebook size={14} />}
+                      {social.id === 'linkedin' && <Linkedin size={14} />}
+                      {social.id === 'twitter' && <Twitter size={14} />}
+                      <span>{social.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
