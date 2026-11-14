@@ -10,7 +10,7 @@ export const ServicesSection: React.FC = () => {
       description: "Building modern, responsive, and high-performance websites for businesses and individuals tailored for conversion, speed, and seamless cross-device experiences.",
       deliverables: ["Responsive Websites & SPAs", "Clean Semantic HTML/CSS/JS", "Lead Capture & Contact Portals", "SEO & Speed Optimization"],
       tag: "Code & Web",
-      projectReference: "Kenuch Solar, Awa Decoration"
+      projectReference: "Pitta Santorini, Nagina Grill, Cut Label"
     },
     {
       num: "02",
@@ -28,7 +28,7 @@ export const ServicesSection: React.FC = () => {
       description: "Exploring digital business models, building sustainable ideas, and understanding how applied technology creates tangible commercial value for businesses.",
       deliverables: ["Digital Brand Strategy", "Customer Funnel Optimization", "Product-Market Discovery", "Tech-Enabled Value Creation"],
       tag: "Business & Growth",
-      projectReference: "Kenuch Solar & Client Ventures"
+      projectReference: "PrettyAngel's Boutique, Kenuch Solar"
     },
     {
       num: "04",

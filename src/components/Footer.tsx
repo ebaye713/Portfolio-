@@ -1,18 +1,20 @@
 import React from 'react';
-import { ArrowUp, Facebook, Linkedin, Twitter } from 'lucide-react';
-import { socialLinks } from '../data/socials';
+import { ArrowUp, Facebook, Github, Linkedin, Twitter } from 'lucide-react';
+import { socialLinks, SocialLink } from '../data/socials';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const renderSocialIcon = (id: 'facebook' | 'linkedin' | 'twitter') => {
+  const renderSocialIcon = (id: SocialLink['id']) => {
     switch (id) {
-      case 'facebook':
-        return <Facebook size={16} />;
+      case 'github':
+        return <Github size={16} />;
       case 'linkedin':
         return <Linkedin size={16} />;
+      case 'facebook':
+        return <Facebook size={16} />;
       case 'twitter':
         return <Twitter size={16} />;
     }
@@ -21,10 +23,10 @@ export const Footer: React.FC = () => {
   return (
     <footer className="py-12 border-t border-slate-900 bg-slate-950 text-slate-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           
           {/* Brand Wordmark & Tagline */}
-          <div className="space-y-1 text-center md:text-left">
+          <div className="space-y-1 text-center lg:text-left">
             <p className="text-sm font-bold text-white tracking-tight">
               Ebaye PraiseGod Ese
             </p>
@@ -42,9 +44,9 @@ export const Footer: React.FC = () => {
             <a href="#contact" className="hover:text-amber-400 transition-colors">Contact</a>
           </div>
 
-          {/* Social Media Links (Facebook, LinkedIn, Twitter) & Back to Top */}
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="flex items-center gap-2">
+          {/* Social Media Links (GitHub, LinkedIn, Facebook, Twitter) & Back to Top */}
+          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+            <div className="flex flex-wrap items-center justify-center gap-2">
               {socialLinks.map((social) => (
                 <a
                   key={social.id}

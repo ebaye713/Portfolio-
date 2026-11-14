@@ -178,7 +178,7 @@ export const Hero: React.FC = () => {
         {/* Below-the-Split: Full-Width 4-Column Metric Strip */}
         <div className="mt-16 pt-10 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="space-y-1">
-            <p className="text-2xl sm:text-3xl font-extrabold text-white font-mono tabular-nums">4+</p>
+            <p className="text-2xl sm:text-3xl font-extrabold text-white font-mono tabular-nums">8+</p>
             <p className="text-xs sm:text-sm font-medium text-slate-400">Featured Projects Completed</p>
           </div>
           <div className="space-y-1">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, CheckCircle2, ArrowRight, ArrowLeft, Sparkles, User, AtSign, Briefcase, MessageSquare, Facebook, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Copy, Check, Send, CheckCircle2, ArrowRight, ArrowLeft, Sparkles, User, AtSign, Briefcase, MessageSquare, Facebook, Github, Linkedin, Twitter } from 'lucide-react';
 import { socialLinks } from '../data/socials';
 
 export const ContactSection: React.FC = () => {
@@ -187,6 +187,7 @@ export const ContactSection: React.FC = () => {
                       aria-label={social.label}
                       className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 hover:text-slate-950 bg-slate-950 hover:bg-amber-400 rounded-xl border border-slate-800 hover:border-amber-400 transition-colors"
                     >
+                      {social.id === 'github' && <Github size={14} />}
                       {social.id === 'facebook' && <Facebook size={14} />}
                       {social.id === 'linkedin' && <Linkedin size={14} />}
                       {social.id === 'twitter' && <Twitter size={14} />}

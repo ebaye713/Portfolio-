@@ -1,6 +1,10 @@
 import { Project } from '../types';
 import kenuchSolarImg from '../assets/images/project_kenuch_solar_1794351045327.jpg';
 import awaDecorationImg from '../assets/images/project_awa_decoration_1794519609460.jpg';
+import pittaSantoriniImg from '../assets/images/project_pitta_santorini_1794644284810.jpg';
+import naginaGrillImg from '../assets/images/project_nagina_grill_1794644284476.jpg';
+import prettyAngelImg from '../assets/images/project_pretty_angel_1794644285092.jpg';
+import cutLabelImg from '../assets/images/project_cut_label_1794644285139.jpg';
 
 /**
  * ============================================================================
@@ -43,6 +47,90 @@ import awaDecorationImg from '../assets/images/project_awa_decoration_1794519609
  */
 
 export const projectsData: Project[] = [
+  {
+    id: "pitta-santorini",
+    title: "Pitta Santorini",
+    subtitle: "Authentic Greek Street Food & Deliveroo Ordering Web Experience",
+    category: "Web Development",
+    description: "A vibrant, modern restaurant website for Pitta Santorini at 72 Longbridge Road, Barking (UK), showcasing freshly grilled Greek gyros, pitta wraps, portion boxes, and Freddo coffee with direct Deliveroo and in-store collection flows.",
+    longDescription: "Built for Pitta Santorini in the heart of Barking (IG11 8SF), this responsive hospitality site pairs a clean Aegean blue (#0F4C81) and white visual system with Fraunces editorial typography. It features Schema.org Restaurant structured data for local Google search visibility, live opening hours, geo-coordinates, and seamless order-ahead links to Deliveroo.",
+    image: pittaSantoriniImg,
+    tags: ["React", "Restaurant SEO", "Schema.org JSON-LD", "Deliveroo Flow", "Hospitality UI"],
+    features: [
+      "Full menu showcase for Greek gyros, pitta wraps, portion boxes, and Freddo coffee",
+      "Direct Deliveroo integration alongside in-store collection details",
+      "Local SEO Schema.org Restaurant markup with Barking IG11 address & hours",
+      "Crisp Mediterranean cobalt-and-white design using Fraunces & Plus Jakarta Sans"
+    ],
+    link: "https://pitta-santorini.vercel.app",
+    client: "Pitta Santorini (Barking, UK)",
+    year: "2026",
+    featured: true,
+    highlights: "Live hospitality site engineered with local Schema.org SEO and online ordering."
+  },
+  {
+    id: "nagina-grill",
+    title: "Nagina Grill & Restaurant",
+    subtitle: "Pakistani & Desi Charcoal Grill Showcase with Interactive Location",
+    category: "Web Development",
+    description: "An atmospheric dark-themed restaurant website for Nagina Grill & Restaurant at 93 Longbridge Road, Barking, highlighting authentic Pakistani charcoal grills, traditional karahi dishes, and weekend specials like Halwa Puri, Nihari, Paya, and Haleem.",
+    longDescription: "Crafted in a rich charcoal-and-crimson palette (#120B0B & #9B1B20) with Cormorant Garamond editorial headings, the Nagina Grill & Restaurant web platform brings traditional Desi culinary heritage online. It includes smooth motion animations, interactive map integration, direct click-to-call reservations (+44 20 8594 8153), and Schema.org structured restaurant data.",
+    image: naginaGrillImg,
+    tags: ["React", "Motion Animations", "Maps Integration", "Local SEO", "Hospitality Web"],
+    features: [
+      "Spotlight on charcoal grills, karahi, and Sunday/weekend Halwa Puri & Nihari specials",
+      "Rich dark burgundy & warm ivory editorial visual language",
+      "Interactive location mapping and direct click-to-call booking link",
+      "Structured Schema.org dining metadata for Mon–Sun opening hours"
+    ],
+    link: "https://nagina-grill-restaurant.vercel.app",
+    client: "Nagina Grill & Restaurant (Barking, UK)",
+    year: "2026",
+    featured: true,
+    highlights: "Full-featured culinary showcase with interactive maps and motion choreography."
+  },
+  {
+    id: "pretty-angel-boutique",
+    title: "PrettyAngel's Boutique",
+    subtitle: "Luxury Women's Occasion-Wear Digital Storefront",
+    category: "Digital Branding",
+    description: "An elegant digital showcase for PrettyAngel's Boutique at Unit 23/24, Vicarage Field Shopping Centre, Barking—celebrating over 10 years of styling women for weddings, celebrations, and milestone events.",
+    longDescription: "Designed to mirror the sophistication of an established occasion-wear boutique, the PrettyAngel's Boutique website pairs Cormorant Garamond serif typography with refined layout spacing. Visitors can browse curated collections across dresses, skirts, women's suits, shoes, and bags while connecting directly with the Barking boutique.",
+    image: prettyAngelImg,
+    tags: ["Digital Branding", "Fashion Retail", "Editorial UI", "Responsive Design", "Boutique Web"],
+    features: [
+      "Curated showcase of women's occasion dresses, skirts, suits, shoes, and handbags",
+      "Highlights 10+ years of styling heritage for weddings and milestone events",
+      "Refined serif & sans-serif typographic pairing tailored for luxury fashion",
+      "Clear Vicarage Field Shopping Centre store locator and contact details"
+    ],
+    link: "https://pretty-angel.vercel.app",
+    client: "PrettyAngel's Boutique (Barking, UK)",
+    year: "2026",
+    featured: true,
+    highlights: "Elevated 10+ years of boutique styling heritage into a refined online presence."
+  },
+  {
+    id: "cut-label",
+    title: "Cut Label",
+    subtitle: "High-Contrast Fashion Outlet Digital Platform (Up to 75% Off RRP)",
+    category: "Web Development",
+    description: "A bold, fast-loading retail website for Cut Label fashion outlet at Unit 22, Vicarage Field Shopping Centre, Barking—presenting genuine ex-high-street women's, men's, and children's fashion at up to 75% off RRP.",
+    longDescription: "Cut Label needed an energetic, high-contrast digital storefront that communicates genuine high-street value without clutter. Built with warm stone (#FAF9F6), deep ink (#141414), and crimson accents (#B91C1C) alongside Bricolage Grotesque and JetBrains Mono typography, the site highlights daily 7-day opening hours and surplus fashion drops.",
+    image: cutLabelImg,
+    tags: ["Retail Storefront", "Bricolage Grotesque", "Responsive UI", "Fashion Outlet", "React"],
+    features: [
+      "Departmental showcase covering women's, men's, and children's ex-high-street fashion",
+      "Clear value messaging highlighting up to 75% savings off RRP",
+      "Crisp editorial typography combining Bricolage Grotesque & JetBrains Mono",
+      "Open-7-days store guide for Unit 22, Vicarage Field Shopping Centre"
+    ],
+    link: "https://cut-label-6hye.vercel.app",
+    client: "Cut Label Barking (UK)",
+    year: "2026",
+    featured: true,
+    highlights: "High-contrast retail outlet web experience built for rapid shopper browsing."
+  },
   {
     id: "kenuch-solar",
     title: "Kenuch Solar",

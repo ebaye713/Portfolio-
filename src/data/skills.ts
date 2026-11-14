@@ -90,9 +90,9 @@ export const experienceAchievements = [
   {
     year: "2025 – 2026",
     title: "Lead Web Developer & Digital Brand Consultant",
-    organization: "Kenuch Solar & Awa Decoration",
-    description: "Engineered and upgraded responsive commercial websites for renewable energy and event decoration brands, strengthening online visibility and customer inquiries.",
-    metric: "Live Client Deployments"
+    organization: "Pitta Santorini, Nagina Grill, PrettyAngel's, Cut Label, Kenuch Solar & Awa Decoration",
+    description: "Engineered and deployed responsive commercial websites across UK hospitality, fashion retail, renewable energy, and event styling businesses—complete with Schema.org local SEO, Deliveroo integration, and custom brand systems.",
+    metric: "6 Live Client Sites"
   },
   {
     year: "2024 – 2026",
